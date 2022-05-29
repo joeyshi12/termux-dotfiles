@@ -4,17 +4,8 @@ alias v='nvim'
 alias sv='sudo -E nvim'
 alias m='neomutt'
 alias sql='sqlite3 -init ~/.config/sqlite3/sqliterc'
-alias sc='sc-im'
-alias copy='xclip -sel c'
+alias copy='termux-clipboard-set'
 alias diff='diff --color'
-[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
-
-alias pacs='sudo pacman -S'
-alias pacss='pacman -Ss'
-alias pacqs='pacman -Qs'
-alias pacsyu='sudo pacman -Syu'
-alias pacrs='sudo pacman -Rs'
-alias pacar='sudo pacman -Rsn $(pacman -Qdtq)'
 
 alias ga='git add'
 alias gaa='git add --all'
@@ -52,17 +43,14 @@ se() {
         cd "$(dirname "$file")"
         local file_name="$(basename "$file")"
         case "$(file -b --mime-type $file_name)" in
-            application/pdf)
-                zathura "$file_name" &!
-                ;;
             application/vnd.sqlite3)
                 sqlite3 "$file_name"
                 ;;
-            image/*)
-                feh "$file_name" &!
+            application/pdf)
+                termux-open "$file_name"
                 ;;
-            video/*)
-                vlc "$file_name" &!
+            (image|video)/*)
+                termux-open "$file_name"
                 ;;
             *)
                 nvim "$file_name"
