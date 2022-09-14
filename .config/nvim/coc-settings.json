@@ -22,6 +22,5 @@
             }
         }
     },
-    "python.pythonPath": "~/miniconda3/bin/python",
     "diagnostic.displayByAle": true
 }

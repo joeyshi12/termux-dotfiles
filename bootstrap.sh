@@ -5,10 +5,9 @@ DOTFILES_DIR=~/.dotfiles
 # Create links
 dotfiles=(
     ".config/nvim"
-    ".config/ranger"
+    ".config/lf"
     ".config/tmux"
     ".config/sqlite3"
-    ".config/conda"
     ".config/pylintrc"
     ".config/ripgrep"
     ".zprofile"
